@@ -1,0 +1,79 @@
+
+Propósito de cada pasta e arquivo no projeto Angular "GERADOR_CERTIFICADO_ANGULAR"
+
+PASTAS
+
+.vscode/
+Contém configurações específicas do Visual Studio Code, como:
+- Extensões recomendadas
+- Configurações de formatação
+- Debugging
+
+node_modules/
+Pasta gerada automaticamente pelo npm/yarn com todas as dependências do projeto Angular instaladas via package.json.
+
+public/
+Essa pasta normalmente é usada para arquivos estáticos públicos. Em projetos Angular padrão, a pasta usada para isso é a assets, então public/ pode ter sido adicionada manualmente e seu uso depende da configuração do projeto (Midias).
+
+src/
+Pasta principal do código fonte da aplicação Angular.
+
+ARQUIVOS EM src/app/
+
+app.component.ts
+Componente raiz da aplicação Angular. Define a classe principal do componente (AppComponent) com a lógica da UI.
+
+app.component.html
+Template HTML do componente raiz.
+
+app.component.css
+Estilos específicos para o componente raiz.
+
+app.component.spec.ts
+Arquivo de teste unitário (usando Jasmine/Karma) para o AppComponent.
+
+app.config.ts
+Arquivo de configuração da aplicação. Pode conter constantes, chaves de API, URLs, entre outros parâmetros configuráveis.
+
+app.routes.ts
+Responsável por definir as rotas da aplicação, usando o RouterModule.
+
+index.html
+Arquivo HTML principal da aplicação (não confundir com app.component.html). Carrega o app Angular via a tag <app-root>.
+
+ARQUIVOS EM src/
+
+main.ts
+Ponto de entrada da aplicação Angular. Inicializa o módulo raiz (AppModule) e faz o bootstrap da aplicação.
+
+styles.css
+Estilos globais da aplicação.
+
+ARQUIVOS NA RAIZ DO PROJETO
+
+.editorconfig
+Define convenções de estilo de código para diferentes editores (indentação, charset, fim de linha etc).
+
+.gitignore
+Define os arquivos/pastas que devem ser ignorados pelo Git.
+
+angular.json
+Arquivo de configuração principal do Angular CLI. Define como o projeto será construído, quais arquivos são incluídos, configurações de build/test, etc.
+
+package.json
+Lista dependências, scripts e metadados do projeto.
+
+package-lock.json
+Trava as versões exatas das dependências instaladas para garantir consistência entre ambientes.
+
+README.md
+Arquivo de documentação do projeto (geralmente contém instruções de uso, instalação etc).
+
+tsconfig.app.json
+Configurações específicas do TypeScript para a aplicação.
+
+tsconfig.json
+Configuração base do TypeScript usada pelo Angular.
+
+tsconfig.spec.json
+Configuração TypeScript específica para testes.

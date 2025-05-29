@@ -1,0 +1,106 @@
+
+Comandos úteis da Angular CLI
+
+A Angular CLI (Command Line Interface) oferece uma série de comandos para criação, desenvolvimento, build e testes de aplicações Angular.
+
+-------------------------------
+INSTALAÇÃO DA CLI
+-------------------------------
+npm install -g @angular/cli
+
+-------------------------------
+CRIAÇÃO DE UM NOVO PROJETO
+-------------------------------
+ng new nome-do-projeto
+
+Opções úteis:
+--style=scss       // Define o pré-processador CSS
+--routing          // Adiciona suporte a rotas
+--strict           // Ativa modo estrito do TypeScript
+
+-------------------------------
+SERVIDOR DE DESENVOLVIMENTO
+-------------------------------
+ng serve
+ng serve --open       // Abre o navegador automaticamente
+ng serve --port 4201  // Define uma porta específica
+
+-------------------------------
+GERAÇÃO DE ARTEFATOS
+-------------------------------
+
+Componentes:
+ng generate component nome
+ng g c nome --skip-tests  // Sem arquivo de teste
+ng g c pasta/nome         // Com subdiretório
+
+Serviços:
+ng generate service nome
+ng g s nome
+
+Diretivas:
+ng generate directive nome
+ng g d nome
+
+Pipes:
+ng generate pipe nome
+ng g p nome
+
+Módulos:
+ng generate module nome
+ng g m nome
+
+Guards:
+ng generate guard nome
+ng g g nome
+
+Interfaces:
+ng generate interface nome
+ng g i nome
+
+Enums:
+ng generate enum nome
+ng g e nome
+
+Classes:
+ng generate class nome
+ng g cl nome
+
+-------------------------------
+COMPILAÇÃO/BUILD
+-------------------------------
+ng build
+ng build --configuration=production
+ng build --output-path=dist/pasta
+
+-------------------------------
+TESTES
+-------------------------------
+ng test              // Testes unitários (Karma)
+ng test --watch=false
+
+ng e2e               // Testes de ponta a ponta (E2E)
+ng lint              // Verificação de padrões de código
+
+-------------------------------
+INTERNACIONALIZAÇÃO
+-------------------------------
+ng extract-i18n      // Extrai textos com i18n para tradução
+
+-------------------------------
+OUTROS COMANDOS ÚTEIS
+-------------------------------
+ng add pacote        // Instala e configura automaticamente uma biblioteca (ex: ng add @angular/material)
+ng update            // Atualiza Angular e dependências
+ng version           // Exibe a versão do Angular e CLI
+ng config            // Gerencia configurações da CLI
+ng analytics         // Gerencia coleta de dados de uso
+
+-------------------------------
+AJUDA
+-------------------------------
+ng help
+ng g --help
+ng build --help
+
+Esses comandos são essenciais para produtividade com Angular. A CLI abstrai muito da configuração manual, agilizando o desenvolvimento.

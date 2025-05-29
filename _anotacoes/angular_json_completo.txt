@@ -1,0 +1,136 @@
+
+Detalhamento completo do arquivo angular.json em um projeto Angular
+
+O arquivo angular.json é a principal configuração da Angular CLI. Ele define como a aplicação será construída, servida, testada, e muito mais.
+
+-------------------------------
+ESTRUTURA PRINCIPAL
+-------------------------------
+
+{
+  "version": 1,  // Versão do schema do Angular CLI
+  "projects": {
+    "nome-do-projeto": {
+      "projectType": "application",  // Pode ser "application" ou "library"
+      "root": "",  // Diretório raiz do projeto
+      "sourceRoot": "src",  // Onde está localizado o código-fonte
+      "prefix": "app",  // Prefixo usado nos seletores dos componentes
+      "architect": {
+        "build": { ... },  // Configurações de build
+        "serve": { ... },  // Configurações do servidor de desenvolvimento
+        "test": { ... },   // Configurações de testes unitários
+        "lint": { ... },   // Configurações de lint
+        "extract-i18n": { ... } // Extração de internacionalização
+      }
+    }
+  },
+  "defaultProject": "nome-do-projeto",  // Projeto padrão usado pela CLI
+  "cli": { ... },  // Configurações da CLI
+  "schematics": { ... }  // Padrões para geração de código
+}
+
+-------------------------------
+DETALHAMENTO DOS OBJETOS architect
+-------------------------------
+
+1. build
+Configura a compilação da aplicação.
+- "builder": "@angular-devkit/build-angular:browser"
+- "outputPath": Diretório onde os arquivos compilados serão gerados.
+- "index": Caminho para o arquivo HTML principal (index.html).
+- "main": Arquivo TypeScript principal da aplicação (main.ts).
+- "polyfills": Arquivo para compatibilidade com navegadores antigos.
+- "tsConfig": Caminho do arquivo de configuração TypeScript.
+- "assets": Lista de arquivos e pastas que serão copiadas para o output (ex: favicon, assets).
+- "styles": Lista de arquivos CSS globais.
+- "scripts": Lista de scripts JS globais, como bibliotecas externas.
+- "configurations": Configurações específicas como production e development.
+  - "production": opções como otimização, AOT, buildOptimizer, etc.
+  - "development": sem otimizações para facilitar o debug.
+
+2. serve
+Configura o servidor local usado no desenvolvimento.
+- "builder": "@angular-devkit/build-angular:dev-server"
+- "browserTarget": aponta para a configuração de build usada.
+- "options": porta, host, proxyConfig, SSL etc.
+
+3. test
+Configura testes unitários com Karma.
+- "builder": "@angular-devkit/build-angular:karma"
+- "main", "polyfills", "tsConfig", "karmaConfig"
+- "assets", "styles", "scripts": o que será carregado nos testes
+
+4. lint
+Executa o lint para verificar padrões de código.
+- "builder": "@angular-devkit/build-angular:tslint"
+- "tsConfig": arquivos tsconfig a serem analisados
+- "exclude": arquivos/pastas ignoradas
+
+5. extract-i18n
+Extrai as mensagens para arquivos de internacionalização (i18n).
+- "builder": "@angular-devkit/build-angular:extract-i18n"
+- "browserTarget": aponta para a build usada na extração
+
+-------------------------------
+OUTROS CAMPOS IMPORTANTES
+-------------------------------
+
+- "cli":
+  - "defaultCollection": Define qual coleção de schematics é usada por padrão
+  - Pode conter configurações como tamanho máximo de log, formatação de saída, etc.
+
+- "schematics":
+  - Define padrões para comandos como `ng generate`
+  - Exemplo:
+    {
+      "@schematics/angular:component": {
+        "style": "scss",
+        "skipTests": true
+      }
+    }
+
+-------------------------------
+EXEMPLOS DE USO DE CAMPOS COMUNS
+-------------------------------
+
+1. Adicionar CSS global:
+"styles": [
+  "src/styles.css",
+  "src/global-styles/custom.css"
+]
+
+2. Adicionar JS externo:
+"scripts": [
+  "src/assets/js/jquery.min.js",
+  "src/assets/js/bootstrap.min.js"
+]
+
+3. Definir diferentes ambientes:
+"fileReplacements": [
+  {
+    "replace": "src/environments/environment.ts",
+    "with": "src/environments/environment.prod.ts"
+  }
+]
+
+4. Ativar AOT e otimização em produção:
+"configurations": {
+  "production": {
+    "optimization": true,
+    "aot": true,
+    "buildOptimizer": true
+  }
+}
+
+-------------------------------
+CONCLUSÃO
+-------------------------------
+
+O angular.json é essencial para:
+- Controlar o processo de build e serve
+- Adicionar estilos e scripts globais
+- Definir ambientes (dev/prod)
+- Personalizar comandos CLI
+- Integrar testes, linting e i18n
+
+Alterações neste arquivo devem ser feitas com atenção, pois impactam diretamente o comportamento do projeto Angular.

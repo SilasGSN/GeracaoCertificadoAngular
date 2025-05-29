@@ -1,0 +1,98 @@
+
+Ciclo de Vida de um Componente Angular (Lifecycle Hooks)
+
+No Angular, os componentes passam por diversas fases desde sua criação até a destruição.
+Essas fases são chamadas de hooks do ciclo de vida (lifecycle hooks).
+
+-----------------------------------------------------
+✅ Lista de Lifecycle Hooks do Angular
+-----------------------------------------------------
+
+1. ngOnChanges(changes: SimpleChanges)
+- Chamado sempre que um ou mais inputs com @Input() mudam.
+- Executado antes do ngOnInit e a cada mudança subsequente de input.
+
+2. ngOnInit()
+- Executado uma vez após o primeiro ngOnChanges.
+- Usado para inicialização, chamadas a serviços, etc.
+
+3. ngDoCheck()
+- Chamado em toda detecção de mudança.
+- Útil para lógica personalizada que não é coberta por ngOnChanges.
+
+4. ngAfterContentInit()
+- Chamado uma vez após a projeção de conteúdo externo (ng-content).
+
+5. ngAfterContentChecked()
+- Chamado após cada verificação de mudança no conteúdo projetado.
+
+6. ngAfterViewInit()
+- Chamado uma vez depois que a view e suas subviews foram inicializadas.
+- Ideal para lógicas que usam @ViewChild.
+
+7. ngAfterViewChecked()
+- Chamado após cada verificação de mudança nas views do componente e seus filhos.
+
+8. ngOnDestroy()
+- Chamado antes da destruição do componente.
+- Ideal para limpar subscrições, timeouts, handlers, etc.
+
+-----------------------------------------------------
+🧠 Exemplo prático com todos os hooks
+-----------------------------------------------------
+
+import {
+  Component, OnInit, OnChanges, DoCheck,
+  AfterContentInit, AfterContentChecked,
+  AfterViewInit, AfterViewChecked, OnDestroy,
+  SimpleChanges
+} from '@angular/core';
+
+@Component({
+  selector: 'app-demo',
+  templateUrl: './demo.component.html'
+})
+export class DemoComponent implements
+  OnInit, OnChanges, DoCheck,
+  AfterContentInit, AfterContentChecked,
+  AfterViewInit, AfterViewChecked, OnDestroy {
+
+  constructor() {
+    console.log('Constructor');
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges', changes);
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit');
+  }
+
+  ngDoCheck() {
+    console.log('ngDoCheck');
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit');
+  }
+
+  ngAfterContentChecked() {
+    console.log('ngAfterContentChecked');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit');
+  }
+
+  ngAfterViewChecked() {
+    console.log('ngAfterViewChecked');
+  }
+
+  ngOnDestroy() {
+    console.log('ngOnDestroy');
+  }
+}
+
+-----------------------------------------------------
+Esses hooks ajudam a controlar o comportamento do componente em momentos específicos do seu ciclo de vida.

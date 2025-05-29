@@ -1,0 +1,64 @@
+
+Explicação detalhada do código do componente Angular
+
+Código:
+-----------------------------------------
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-navbar',
+  imports: [],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css'
+})
+export class NavbarComponent {
+
+}
+-----------------------------------------
+
+DETALHAMENTO:
+
+1. import { Component } from '@angular/core';
+- Importa o decorator `Component` do núcleo do Angular.
+- O decorator é usado para definir metadados de um componente.
+
+2. @Component({...})
+- É um decorator que marca a classe `NavbarComponent` como um componente Angular.
+- Ele aceita um objeto de metadados com várias propriedades:
+
+  a) selector: 'app-navbar'
+  - Define o nome da tag HTML que representa este componente.
+  - Exemplo de uso: <app-navbar></app-navbar>
+
+  b) imports: []
+  - (Angular Standalone) Lista de dependências que este componente importa (outros componentes, diretivas, pipes etc).
+  - No Angular tradicional com módulos (NgModule), esta propriedade normalmente não é usada.
+
+  c) templateUrl: './navbar.component.html'
+  - Caminho para o arquivo HTML que define o template (interface visual) do componente.
+
+  d) styleUrl: './navbar.component.css'
+  - Caminho para o arquivo de estilos CSS específico deste componente.
+  - OBS: O nome correto da propriedade é "styleUrls" (no plural), pois ela espera um array de caminhos.
+
+3. export class NavbarComponent { }
+- Define a classe do componente.
+- Aqui você pode adicionar propriedades, métodos, injeções de dependência, etc.
+
+CORREÇÃO IMPORTANTE:
+---------------------
+O código contém um pequeno erro:
+  - O nome correto é `styleUrls` (com 's') em vez de `styleUrl`.
+
+Correção:
+@Component({
+  selector: 'app-navbar',
+  imports: [],
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
+})
+
+RESUMO:
+- Este código define um componente Angular chamado `NavbarComponent`.
+- Ele pode ser reutilizado em qualquer parte do app com a tag <app-navbar>.
+- Possui um template HTML e um arquivo de estilo próprios.
