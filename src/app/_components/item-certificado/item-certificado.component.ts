@@ -15,7 +15,7 @@ export class ItemCertificadoComponent {
 
   }
 
-  rdirecionaCertificado() {
+  redirecionaCertificado() {
     this.router.navigate(['/certificados', 2])
   }
 }
